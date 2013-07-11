@@ -1,20 +1,18 @@
 #include <stdio.h>
+#include <math.h>
 
-int a,b[6];
+int a[3],b[3];
+double r;
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
-  scanf("%d",&a);
+  
+  scanf("%ld%ld%ld%ld%ld%ld",&a[0],&a[1],&a[2],&b[0],&b[1],&b[2]);
 	
-  b[0]=a/100000;
-  b[1]=a/10000%10;
-  b[2]=a/1000%10;
-  b[3]=a/100%10;
-  b[4]=a/10%10;
-  b[5]=a%10;
+  r=sqrt(pow(a[0]-b[0],2)+pow(a[1]-b[1],2));
 
-  if(b[0]+b[1]+b[2]==b[3]+b[4]+b[5])printf("%s","YES");
+  if(a[2]+b[2]>=r && a[2]+r>=b[2] && r+b[2]>=a[2])printf("%s","YES");
   else printf("%s","NO");
 
 }
