@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <math.h>
 
-int s=0,p=0,x,y;
+long N,count;
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   
-  scanf("%d%d",&s,&p);
-
-  for(int x=0;x<=1000;x++)
-  {
-	y=s-x;
-	if(x*y==p && x<=y)printf("%d %d",x,y);
-  } 
+  scanf("%ld",&N);
   
+  if(N==0) printf("%ld",1);
+  if(N>0)printf("%ld",N*(1+N)/2);
+  if(N<0) 
+  {
+	  count=2-N;
+	  printf("%ld",count*(3-count)/2);
+  }
   return 0;
 }
