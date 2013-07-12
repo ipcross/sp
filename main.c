@@ -1,26 +1,35 @@
 #include <stdio.h>
 #include <math.h>
 
-int N,M,i,a[100000],x;
+int N,res=0,*a;
+
+void recur(int t)
+{
+	int i,max=0,poz=0;
+	if(t==N) return;
+	for(i=t;i<N;i++)
+		if(a[i]>max)
+		{
+			max=a[i];
+			poz=i;
+		}
+	res=res+(poz-t+1)*max;
+	recur(poz+1);
+}
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   
-  scanf("%d%d",&N,&M);
+  scanf("%d",&N);
+  
+  a=new int[N];
+  
+  for(int i=0;i<N;i++) scanf("%d",&a[i]);
 
-  for(i=0;i<N;i++)
-  {
-	scanf("%d",&x);
-	a[x]=1;
-  }
-  for(i=0;i<M;i++) 
-  {
-	  scanf("%d",&x);
-	  if(a[x]==1) a[x]=2;
-  }
-  for(i=0;i<100000;i++) 
-	if(a[i]==2)printf("%d ",i);
+  recur(0);
+
+  printf("%d",res);
 
   return 0;
 }
