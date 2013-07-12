@@ -1,24 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 
-int N,a=0,b=0;
+int N,a=30000,b=0,x;
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   
   scanf("%d",&N);
-	
-  int *mas = new int[N];
+
   for(int i=0;i<N;i++)
   {
-	  scanf("%d",&mas[i]);
-	  if(mas[i]==1)a++;
-	  else b++;
+	  scanf("%d",&x);
+	  if(x<a)a=x;
+	  if(x>b) b=x;
   }
   
-  if(a<=b)printf("%d",a);
-  else printf("%d",b);
-  
+  printf("%d %d",a,b);
+
   return 0;
 }
