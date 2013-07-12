@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
-long N,count;
+int N, i;
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   
-  scanf("%ld",&N);
+  scanf("%d",&N);
+
+  int *a = new int[N];
   
-  if(N==0) printf("%ld",1);
-  if(N>0)printf("%ld",N*(1+N)/2);
-  if(N<0) 
-  {
-	  count=2-N;
-	  printf("%ld",count*(3-count)/2);
-  }
+  for(i=0;i<N;i++) scanf("%d",&a[i]);
+	
+  for(i=N-1;i>=0;i--)printf("%d ",a[i]);
+
   return 0;
 }
