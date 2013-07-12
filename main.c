@@ -1,27 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 
-char a[100];
-int count=0,sum=0;
+int s=0,p=0,x,y;
 
 int main(){
   freopen("input.txt","r",stdin);
   freopen("output.txt","w",stdout);
   
-  scanf("%s",&a);
+  scanf("%d%d",&s,&p);
 
-  for(int i=0;i<100;i++)
+  for(int x=0;x<=1000;x++)
   {
-	if(a[i]=='0')
-		sum++;
-	else
-	{
-		if(count<sum)count=sum;
-		sum=0;
-	}
+	y=s-x;
+	if(x*y==p && x<=y)printf("%d %d",x,y);
   } 
   
-  printf("%d",count);
-
   return 0;
 }
