@@ -1,35 +1,30 @@
 #include <stdio.h>
-#include <math.h>
+#include <algorithm>
 
-int N,res=0,*a;
+using namespace std;
+long *a, i, n, s=1;
 
-void recur(int t)
+int main()
 {
-	int i,max=0,poz=0;
-	if(t==N) return;
-	for(i=t;i<N;i++)
-		if(a[i]>max)
-		{
-			max=a[i];
-			poz=i;
-		}
-	res=res+(poz-t+1)*max;
-	recur(poz+1);
-}
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    
+    scanf ("%ld", &n);
+    a=new long[n];
+    
+    for (i = 0; i < n; i++) 
+      scanf ("%ld", &a[i]);
 
-int main(){
-  freopen("input.txt","r",stdin);
-  freopen("output.txt","w",stdout);
-  
-  scanf("%d",&N);
-  
-  a=new int[N];
-  
-  for(int i=0;i<N;i++) scanf("%d",&a[i]);
+    sort(a, a + n);
+    for (i = 0; i < n ; i++) {
+		if(a[i] <= s)
+			 s += a[i];
+		else 
+			break;
+       
+    }
 
-  recur(0);
-
-  printf("%d",res);
-
-  return 0;
+    printf ("%ld", s);
+    
+    return 0;
 }
