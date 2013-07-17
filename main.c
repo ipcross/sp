@@ -3,12 +3,12 @@
 
 using namespace std;
 
-int n;
-double *a, s;
+long n;
+long *a;
 
 static int cmp(const void *pa, const void *pb)
 {
-	double a = * (double *) pa, b = * (double *) pb;
+	long a = * (long *) pa, b = * (long *) pb;
 	return a - b;
 }
 
@@ -19,23 +19,17 @@ int main()
     
     int i, j;
     
-    scanf ("%d", &n);
+    scanf ("%ld", &n);
     
-    a = new double[n];
+    a = new long[n];
 	
     for (i = 0; i < n ; i++) 
-			scanf ("%lf", &a[i]);
-			
-    scanf ("%lf", &s);
+			scanf ("%ld", &a[i]);
     
-    qsort(a,n,sizeof(double),cmp);
+    qsort(a,n,sizeof(long),cmp);
     
     for (i = 0; i < n ; i++)
-    { 
-		if(a[i]>s) s = ( s + a[i] ) / 2;
-    }
-    
-    printf("%.6lf", s);
+	   printf("%ld ", a[i]);
 
     return 0;
 }
