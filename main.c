@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long n;
+long n,s;
 long *a;
 
 static int cmp(const void *pa, const void *pb)
@@ -28,8 +28,9 @@ int main()
     
     qsort(a,n,sizeof(long),cmp);
     
-    for (i = 0; i < n ; i++)
-	   printf("%ld ", a[i]);
+    for (i = 0; i < n/2+1 ; i++)
+		s = s + a[i]/2+1;
+	printf("%ld ", s);
 
     return 0;
 }
