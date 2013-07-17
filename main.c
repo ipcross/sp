@@ -3,17 +3,13 @@
 
 using namespace std;
 
-int a[100][3], n;
+int n;
+double *a, s;
 
-void chng(int s, int e)
+static int cmp(const void *pa, const void *pb)
 {
-	int tmp;
-	for(int i=0;i<3;i++)
-	{
-		tmp=a[s][i];
-		a[s][i]=a[e][i];
-		a[e][i]=tmp;
-	}
+	double a = * (double *) pa, b = * (double *) pb;
+	return a - b;
 }
 
 int main()
@@ -24,33 +20,22 @@ int main()
     int i, j;
     
     scanf ("%d", &n);
+    
+    a = new double[n];
 	
     for (i = 0; i < n ; i++) 
-		for (j=0;j<3; j++)
-			scanf ("%d", &a[i][j]);
+			scanf ("%lf", &a[i]);
+			
+    scanf ("%lf", &s);
     
-    for (i = 0; i < n-1 ; i++)
+    qsort(a,n,sizeof(double),cmp);
+    
+    for (i = 0; i < n ; i++)
     { 
-		for (j=i+1;j<n; j++)
-		{
-			if(a[i][0]>a[j][0])
-				chng(i,j);
-			if(a[i][0]==a[j][0])
-			{
-				if(a[i][1]>a[j][1])
-					chng(i,j);
-			    if(a[i][1]==a[j][1])
-			    {
-					if(a[i][2]>a[j][2])
-						chng(i,j);
-				}	
-			}
-		}  
+		if(a[i]>s) s = ( s + a[i] ) / 2;
     }
     
-    for (i = 0; i < n ; i++){ 
-		for (j=0;j<3; j++)printf("%d ", a[i][j]);
-		printf("\n");
-    }
+    printf("%.6lf", s);
+
     return 0;
 }
