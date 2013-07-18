@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long a[100000];
+long *a, *b,n;
 
 static int cmp(const void *pa, const void *pb)
 {
@@ -16,27 +16,48 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     
-    int n=0, i;
-    while(scanf ("%ld", &a[n])==1) n++;
+    int i;
+    long count=1, maxval, max=0, val;
     
+    scanf ("%ld", &n);
+    
+    a = new long[n];
+    b = new long[n];
+    
+    for(i=0;i<n;i++)
+    {
+		scanf ("%ld", &a[i]);
+		b[i]=a[i];
+	}
     qsort(a,n,sizeof(long),cmp);
     
-    long d=a[1]-a[0];
+    maxval=a[0];val=a[0];
     
-    for (i = 2; i < n ; i++)
+    for(i=1;i<n;i++)
     {
-		if(a[i]-a[i-1]==d)
+		if(a[i]==val)	count++;
+		else
 		{
-			if(i==n-1)
-			{ 
-				printf("Yes");
-				return 0;
+			if(max<count)
+			{
+				max=count;
+				maxval=val;
 			}
+			count=1;
+			val=a[i];
 		}
-		else break;
 	}
+		if(max<count)
+		{
+			max=count;
+			maxval=val;
+		}	
 	
-	printf("No");
-	
+	for(i=0;i<n;i++)
+		if(b[i]!=maxval) printf("%ld ", b[i]);
+
+	for(i=0;i<max;i++)  printf("%ld ", maxval);
+
+		
     return 0;
 }
