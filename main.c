@@ -3,7 +3,7 @@
 
 using namespace std;
 
-long *a, *b,n;
+long *a, *b, n;
 
 static int cmp(const void *pa, const void *pb)
 {
@@ -17,47 +17,46 @@ int main()
     freopen("output.txt", "w", stdout);
     
     int i;
-    long count=1, maxval, max=0, val;
+    long dist=1000000000, x, y, tmp;
     
     scanf ("%ld", &n);
     
     a = new long[n];
     b = new long[n];
-    
+
     for(i=0;i<n;i++)
-    {
+	{
 		scanf ("%ld", &a[i]);
 		b[i]=a[i];
 	}
+	
     qsort(a,n,sizeof(long),cmp);
-    
-    maxval=a[0];val=a[0];
-    
-    for(i=1;i<n;i++)
+        
+    for(i=0;i<n-1;i++)
     {
-		if(a[i]==val)	count++;
-		else
+		tmp=abs(a[i]-a[i+1]);
+		if(tmp<dist)
 		{
-			if(max<count)
+			dist=abs(a[i]-a[i+1]);
+			if(a[i]>a[i+1])
 			{
-				max=count;
-				maxval=val;
+				x=a[i+1];
+				y=a[i];
 			}
-			count=1;
-			val=a[i];
+			else
+			{
+				x=a[i];
+				y=a[i+1];
+			}
 		}
 	}
-		if(max<count)
-		{
-			max=count;
-			maxval=val;
-		}	
-	
+    printf("%ld\n", dist);
+
 	for(i=0;i<n;i++)
-		if(b[i]!=maxval) printf("%ld ", b[i]);
+		if(b[i]==x)printf("%ld ", i+1);
 
-	for(i=0;i<max;i++)  printf("%ld ", maxval);
-
+	for(i=0;i<n;i++)
+		if(b[i]==y)printf("%ld ", i+1);	
 		
     return 0;
 }
