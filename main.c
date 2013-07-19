@@ -1,14 +1,30 @@
 #include <stdio.h>
 #include <algorithm>
+#include <math.h>
 
 using namespace std;
 
-long *a, *b, n;
+int *a, n;
+char **s;
+long long *gr;
 
-static int cmp(const void *pa, const void *pb)
+void chng(int t, int e)
 {
-	long a = * (long *) pa, b = * (long *) pb;
-	return a - b;
+	int tmp;
+	char *st;
+	long long grt;
+	
+	tmp=a[t];
+	a[t]=a[e];
+	a[e]=tmp;
+
+	st=s[t];
+	s[t]=s[e];
+	s[e]=st;
+	
+	grt=gr[t];
+	gr[t]=gr[e];
+	gr[e]=grt;	
 }
 
 int main()
@@ -16,47 +32,54 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     
-    int i;
-    long dist=1000000000, x, y, tmp;
+    int i, j;
+    char tmp[10];
     
-    scanf ("%ld", &n);
-    
-    a = new long[n];
-    b = new long[n];
-
-    for(i=0;i<n;i++)
-	{
-		scanf ("%ld", &a[i]);
-		b[i]=a[i];
-	}
+    scanf ("%d", &n);
+	s = new char*[n];
+	a = new int[n];
+	gr = new long long[n];
 	
-    qsort(a,n,sizeof(long),cmp);
-        
-    for(i=0;i<n-1;i++)
-    {
-		tmp=abs(a[i]-a[i+1]);
-		if(tmp<dist)
-		{
-			dist=abs(a[i]-a[i+1]);
-			if(a[i]>a[i+1])
-			{
-				x=a[i+1];
-				y=a[i];
-			}
-			else
-			{
-				x=a[i];
-				y=a[i+1];
-			}
+    for (i = 0; i < n ; i++) 
+	{
+		s[i] = new char[5];
+		scanf ("%d%s", &a[i],s[i]);
+		if(s[i][0]=='m')
+		{	
+			if(s[i][1]=='g') gr[i]=a[i];
+			if(s[i][1]=='p') gr[i]=16380*a[i];
+			if(s[i][1]=='t') pow(10,6)*a[i];
 		}
-	}
-    printf("%ld\n", dist);
-
-	for(i=0;i<n;i++)
-		if(b[i]==x)printf("%ld ", i+1);
-
-	for(i=0;i<n;i++)
-		if(b[i]==y)printf("%ld ", i+1);	
+		if(s[i][0]=='k')
+		{	
+			if(s[i][1]=='g') gr[i]=pow(10,6)*a[i];
+			if(s[i][1]=='p') gr[i]=pow(10,6)*16380*a[i];
+			if(s[i][1]=='t') pow(10,12)*a[i];
+		}
+		if(s[i][0]=='M')
+		{	
+			if(s[i][1]=='g') gr[i]=pow(10,9)*a[i];
+			if(s[i][1]=='p') gr[i]=pow(10,9)*16380*a[i];
+			if(s[i][1]=='t') pow(10,15)*a[i];
+		}
+		if(s[i][0]=='G')
+		{	
+			if(s[i][1]=='g') gr[i]=pow(10,12)*a[i];
+			if(s[i][1]=='p') gr[i]=pow(10,12)*16380*a[i];
+			if(s[i][1]=='t') pow(10,18)*a[i];
+		}
 		
+		if(s[i][0]=='g') gr[i]=pow(10,3)*a[i];
+		if(s[i][0]=='p')gr[i]=pow(10,3)*16380*a[i];
+		if(s[i][0]=='t')gr[i]=pow(10,9)*a[i];
+	}
+
+	for (i = 0; i < n-1 ; i++)
+		for (j=i+1;j<n; j++)
+			if(gr[i]>gr[j]) chng(i,j);
+			
+    for (i = 0; i < n ; i++)
+		printf("%d %s\n" , a[i], s[i]);
+
     return 0;
 }
