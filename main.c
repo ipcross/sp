@@ -1,26 +1,23 @@
 #include <stdio.h>
+#include <algorithm>
+int a[5000],b[5000],n;
+long long f[5000];
 
-int main()
+static int cmp(const void *pa, const void *pb)
 {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
- 
-	int w,h,n,a[112][112],i,j,x1,y1,x2,y2,c=0,f;
-    
-    scanf ("%d%d%d", &w,&h,&n);
+	long a = * (long *) pa, b = * (long *) pb;
+	return a - b;
+}
 
-	for(f=0;f<n;f++)
-	{
-		scanf ("%d%d%d%d", &x1,&y1,&x2,&y2);
-		for(i=x1;i<x2;i++)
-			for(j=y1;j<y2;j++)
-				a[i][j]=1;
-	}
-	
-	for(i=0;i<h;i++)
-		for(j=0;j<w;j++) 
-			if(a[i][j])c++;
-	printf("%d", w*h-c);
-	
-    return 0;
+int main(){
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){scanf("%d",&a[i]);b[i]=a[i];}
+	std::qsort(b,n,sizeof(long),cmp);
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			f[j]+=abs(a[i]-b[j]);
+			f[j]=j&&f[j-1]<f[j]?f[j-1]:f[j];
+		}
+	}	
+	printf("%I64d\n",f[n-1]);
 }
