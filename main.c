@@ -1,23 +1,37 @@
 #include <stdio.h>
 #include <algorithm>
-int a[5000],b[5000],n;
-long long f[5000];
 
-static int cmp(const void *pa, const void *pb)
-{
-	long a = * (long *) pa, b = * (long *) pb;
-	return a - b;
-}
+int **a, n, m, c, f=0, i, j,l;
 
 int main(){
-	scanf("%d",&n);
-	for(int i=0;i<n;i++){scanf("%d",&a[i]);b[i]=a[i];}
-	std::qsort(b,n,sizeof(long),cmp);
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
-			f[j]+=abs(a[i]-b[j]);
-			f[j]=j&&f[j-1]<f[j]?f[j-1]:f[j];
+	
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);	
+    
+	scanf("%d",&c);
+	for(l=0;l<c;l++){
+		f=0;
+		scanf("%d%d",&n,&m);
+		a = new int*[n];
+		for(i=0;i<n;i++) a[i]=new int[m] ;
+
+		for(i=0;i<n;i++)
+			for(j=0;j<m;j++)
+				 scanf("%d",&a[i][j]);
+				 
+		for(i=0;i<n-1;i++){
+			for(j=0;j<m-1;j++){
+				if((a[i][j]+a[i][j+1]+a[i+1][j]+a[i+1][j+1])%4==0)
+				{
+					f=1;
+					break;
+				}
+			}
+			if(f)break;
 		}
+		
+		f?printf("NO\n"):printf("YES\n");
+		
+		delete a;
 	}	
-	printf("%I64d\n",f[n-1]);
 }
