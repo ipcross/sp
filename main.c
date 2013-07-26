@@ -1,37 +1,38 @@
 #include <stdio.h>
 
-int a[1200][1200], n, m, i, j, count=0, min_h[1200], max_w[1200], val;
+int a[120][120], n, i=1, j, k, p;
 
 int main(){
 	
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);	
     
-	scanf("%d%d",&n,&m);
-	
-	for ( i= 0; i<n; i++ ) 
-		for ( j= 0; j<m; j++ ) scanf("%d",&a[i][j]);
-	
-	for ( i= 0; i<n; i++ ) {
-		val= a[i][0];
-		for ( j= 1; j<m; j++ ) 
-			if ( a[i][j]<val ) val= a[i][j];
-		min_h[i]= val;
-	}
- 
-	for ( j= 0; j<m; j++ ) {
-		val= a[0][j];
-		for ( i= 1; i<n; i++ )
-			if ( a[i][j]>val )val= a[i][j]; 
-		max_w[j]= val;
-	}
- 
-	for ( i= 0; i<n; i++ ) 
-		for ( j= 0; j<m; j++ ) 
-			if ( a[i][j] == max_w[j] && a[i][j] == min_h[i] ) count++;
+	scanf("%d",&n);
+	p=n/2;
 
-	printf("%d",count);
+	for(k=1; k<=p; k++)//kol-vo spiralei
+	{	//verhn.goriz riyad
+		for(j=(k-1); j<(n-k+1); j++)
+			a[k-1][j]=i++;
+		//pravi verhn. stolbec
+		for(j=k; j<(n-k+1); j++)
+			a[j][n-k]=i++;
+		//nizhni goriz riyad
+		for(j=(n-k-1); j>=k-1; j--)
+			a[n-k][j]=i++;
+		//levi kraini stolbec
+		for(j=n-k-1; j>=k; j--)
+			a[j][k-1]=i++;
+	}
 	
+	if (n%2)
+		a[p][p]=n*n;
+  
+	for(i=0; i<n; i++)
+		for(j=0; j<n; j++){
+			printf("%5d ",a[i][j]);
+			if(j==(n-1)) printf("\n");
+		}		
 	return 0;
 }
 
