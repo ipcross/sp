@@ -8,30 +8,58 @@ int main(){
     freopen("output.txt", "w", stdout);	
     
 	scanf("%d",&n);
-	p=n/2;
+	int i=1,j=1,k=1;
+	a[i][j] = k;
 
-	for(k=1; k<=p; k++)//kol-vo spiralei
-	{	//verhn.goriz riyad
-		for(j=(k-1); j<(n-k+1); j++)
-			a[k-1][j]=i++;
-		//pravi verhn. stolbec
-		for(j=k; j<(n-k+1); j++)
-			a[j][n-k]=i++;
-		//nizhni goriz riyad
-		for(j=(n-k-1); j>=k-1; j--)
-			a[n-k][j]=i++;
-		//levi kraini stolbec
-		for(j=n-k-1; j>=k; j--)
-			a[j][k-1]=i++;
+	if(n==1){
+		printf("%d",1);
+		return 0;
+	}
+
+	while(1){
+    if (i < n){  //{вниз}
+		i++;
+		k++;
+		a[i][j]= k;
+	}
+	else { 		// {вправо}
+		j++; 
+		k++;
+		a[i][j]= k;
 	}
 	
-	if (n%2)
-		a[p][p]=n*n;
-  
-	for(i=0; i<n; i++)
-		for(j=0; j<n; j++){
-			printf("%5d ",a[i][j]);
-			if(j==(n-1)) printf("\n");
+	while(i > 1 && j < n) {
+		j++;  //{диагональ вверх-лево}
+		i--;
+		k++;
+		a[i][j] = k;
+	}
+
+	if (j < n){
+		j++; //{вправо}
+		k++;
+		a[i][j] = k;
+	}
+	else
+		if (i < n){
+			i++; //{вниз}
+			k++;
+			a[i][j] = k;
+		}
+	while (j > 1 && i < n){
+		i++; //{диагональ влево-вниз}
+		j--;
+		k++;
+		a[i][j] = k;
+	}
+	
+	if( i == n && j == n) break;//{конец правый нижний угол}
+	}	
+	
+	for(i=1; i<=n; i++)
+		for(j=1; j<=n; j++){
+			printf("%6d",a[i][j]);
+			if(j==n) printf("\n");
 		}		
 	return 0;
 }
