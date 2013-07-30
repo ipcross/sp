@@ -1,34 +1,25 @@
 #include <stdio.h>
 #include <string.h>
 
-char s[300];
+long m,l;
 
 int main(){
 	
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);	
-    
-	gets(s);
-	int i,l=-1;
+
+ 	scanf("%d",&m);
+	int i,flag=0,t;
 	
-	for(i=0;i<strlen(s);i++)
-	{
-		if(s[i]>=48 && s[i]<=57){
-			if(s[i]-47>l)l=s[i]-47;
-		}
-		else {
-			if(s[i]>=65 && s[i]<=90){
-				if(s[i]-54>l)l=s[i]-54;
-			}
-			else{
-				printf("%d",-1);
-				return 0;
-			}
-		}
-	}
-	
-	if(l==1)l++;
-	printf("%d", l);
+	do{
+		
+		t=m%2;
+		if(flag==0&&t) flag=1;
+		if(flag) l=2*l+t;
+		m=m/2;
+	}while(m>0);   
+
+	printf("%ld", l);
 	return 0;
 }
 
