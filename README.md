@@ -1,8 +1,8 @@
 ## This is repository for Programming Contests
 
-## [Timus Online Judge:cross](acm.timus.ru)
+## [Timus Online Judge:cross](http://acm.timus.ru/author.aspx?id=195159)
 
-## [Acmp:ipcross](http://acmp.ru/?main=tasks)
+## [Acmp:ipcross](http://acmp.ru/index.asp?main=user&id=109193)
 
 [№8 Арифметика](http://acmp.ru/?main=task&id_task=8) : [Код](https://github.com/ipcross/sp/tree/96809a14651d48656be9a19e60e4e0403547f812)<br>
 [№52 Счастливый билет](http://acmp.ru/?main=task&id_task=52) : [Код](https://github.com/ipcross/sp/tree/5a2495a3b11c7b00a849371239a3a63c3b894764)<br>
@@ -41,6 +41,6 @@
 [№173 Число - палиндром](http://acmp.ru/?main=task&id_task=173) : [Код](https://github.com/ipcross/sp/tree/7863f67df9e65c695ad236428bb96cbabb6a7a01)<br>
 [№578 Система счисления](http://acmp.ru/?main=task&id_task=578) : [Код](https://github.com/ipcross/sp/tree/3d541f518c86da572971d2043410c2f9384a3a6f)<br>
 
-## [Codeforces:ipcross](http://codeforces.ru)
+## [Codeforces:ipcross](http://codeforces.com/profile/ipcross)
 
 [№13 C. Последовательность](http://codeforces.ru/contest/13/problem/C) : [Код](https://github.com/ipcross/sp/tree/4f6f5f8b25af93a482f0c09c1803055e8803bdea)
