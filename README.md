@@ -2,6 +2,9 @@
 
 ## [Timus Online Judge:cross](http://acm.timus.ru/author.aspx?id=195159)
 
+[]() : [Код]()
+[№1001 Обратный корень](http://acm.timus.ru/problem.aspx?space=1&num=1001) : [Код]()
+
 ## [Acmp:ipcross](http://acmp.ru/index.asp?main=user&id=109193)
 
 [№8 Арифметика](http://acmp.ru/?main=task&id_task=8) : [Код](https://github.com/ipcross/sp/tree/96809a14651d48656be9a19e60e4e0403547f812)<br>
