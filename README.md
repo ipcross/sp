@@ -1,8 +1,10 @@
 ## This is repository for Programming Contests
 
 ### [Acmp:ipcross](http://acmp.ru/?main=tasks)
-[№8 Арифметика]()<br>
-[№52 Счастливый билет]()<br>
+
+[№8 Арифметика](https://github.com/ipcross/sp/tree/96809a14651d48656be9a19e60e4e0403547f812)
+
+[№52 Счастливый билет](https://github.com/ipcross/sp/tree/5a2495a3b11c7b00a849371239a3a63c3b894764)
 [№26 Две окружности]()<br>
 [№106 Монетки]()<br>
 [№81 Арбузы]()<br>
