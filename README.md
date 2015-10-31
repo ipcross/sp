@@ -3,7 +3,8 @@
 ## [Timus Online Judge:cross](http://acm.timus.ru/author.aspx?id=195159)
 
 []() : [Код]()
-[№1001 Обратный корень](http://acm.timus.ru/problem.aspx?space=1&num=1001) : [Код]()
+[№1005 Куча камней](http://acm.timus.ru/problem.aspx?space=1&num=1005) : [Код]()
+[№1001 Обратный корень](http://acm.timus.ru/problem.aspx?space=1&num=1001) : [Код](https://github.com/ipcross/sp/tree/9ea81cba8da3bc852bd4d71bf0481142dae996f5)
 
 ## [Acmp:ipcross](http://acmp.ru/index.asp?main=user&id=109193)
 
