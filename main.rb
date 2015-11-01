@@ -1,15 +1,31 @@
-$m=100000
-$n = gets.to_i
-$a = gets.split.map!{|i| i.to_i}
+matr=[]
+8.times{matr<<gets.split("")}
+a,b=9,9
 
-def f(i, q1, q2)
-  if(i == $n)
-    $m = [$m, (q1-q2).abs].min
-  else
-    f(i+1,q1+$a[i],q2)
-    f(i+1,q1,q2+$a[i])
+8.times do |j|
+  tmp=0
+  8.times do |i|
+    if matr[i][j] == "W"
+      tmp=i
+      a=[tmp,a].min
+      break
+    elsif matr[i][j] == "B"
+      break
+    end
   end
 end
 
-f(0, 0, 0)
-puts $m
+8.times do |j|
+  tmp=0
+   (0..7).to_a.reverse.each do |i|
+    if matr[i][j] == "B"
+      tmp=7-i
+    b=[tmp,b].min
+      break
+    elsif matr[i][j] == "W"
+      break
+    end
+  end
+end
+
+puts a>b ? "B" : "A"
