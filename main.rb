@@ -1,31 +1,16 @@
-matr=[]
-8.times{matr<<gets.split("")}
-a,b=9,9
-
-8.times do |j|
-  tmp=0
-  8.times do |i|
-    if matr[i][j] == "W"
-      tmp=i
-      a=[tmp,a].min
-      break
-    elsif matr[i][j] == "B"
-      break
+def fun(n)
+  return 10 if n==0
+  return 1 if n==1
+  q=0
+  p=1
+  9.downto(2) do |div|
+    while (n%div)==0
+      q+=p*div
+      p=p*10
+      n/=div
     end
   end
+  return (n==1) ? q : -1
 end
 
-8.times do |j|
-  tmp=0
-   (0..7).to_a.reverse.each do |i|
-    if matr[i][j] == "B"
-      tmp=7-i
-    b=[tmp,b].min
-      break
-    elsif matr[i][j] == "W"
-      break
-    end
-  end
-end
-
-puts a>b ? "B" : "A"
+puts fun(gets.to_i)

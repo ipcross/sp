@@ -3,13 +3,14 @@
 ## [Timus Online Judge:cross](http://acm.timus.ru/author.aspx?id=195159)
 
 []() : [Код]()<br>
+[№1014 Произведение цифр](http://acm.timus.ru/problem.aspx?space=1&num=1014) : [Код]()<br>
 [№1005 Куча камней](http://acm.timus.ru/problem.aspx?space=1&num=1005) : [Код](https://github.com/ipcross/sp/tree/53b1d710e94f75e396c9b675f04cb9eee921f89d)<br>
 [№1001 Обратный корень](http://acm.timus.ru/problem.aspx?space=1&num=1001) : [Код](https://github.com/ipcross/sp/tree/9ea81cba8da3bc852bd4d71bf0481142dae996f5)<br>
 
 ## [Codeforces:ipcross](http://codeforces.com/profile/ipcross)
 
-[№592А Пешкошахматы](http://codeforces.com/contest/592/problem/A) : [Код]()<br>
-[№13C Последовательность](http://codeforces.ru/contest/13/problem/C) : [Код](https://github.com/ipcross/sp/tree/4f6f5f8b25af93a482f0c09c1803055e8803bdea)
+[№592А Пешкошахматы](http://codeforces.com/contest/592/problem/A) : [Код](https://github.com/ipcross/sp/tree/918d24d212b2e8726148425155c790bb931b9f82)<br>
+[№13C Последовательность](http://codeforces.ru/contest/13/problem/C) : [Код](https://github.com/ipcross/sp/tree/4f6f5f8b25af93a482f0c09c1803055e8803bdea)<br>
 
 ## [Acmp:ipcross](http://acmp.ru/index.asp?main=user&id=109193)
 
